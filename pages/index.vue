@@ -1,7 +1,14 @@
-<template>
-    <cscript setup>
 
-    </cscript>
+<script setup>
+    const { data: posts } = await useAsyncData('latest-posts', () =>
+    queryContent('/blog')
+    .sort({data: 1})
+    .limit(3)
+    .find()
+)
+</script>
+<template>
+    
     <section>
         <h1 class="text-5xl font-bold mt-20">👋🏻 Salut, Je suis Pascal JUDITH !</h1>
         <p class="text-base text-gray-900 p-2 italic">Vue.JS Developer Advocate at Virtualbox</p>
@@ -26,11 +33,13 @@
             running and lifting weights to get me through the week.
         </p>
         </div>
-        <img src="~/assets/images/gregoryvalsaint.png" class="w-1/2 md:max-w-sm p-8 mx-auto" />
+        <img src="~/assets/images/imgpj.png" class="w-1/2 md:max-w-sm p-8 mx-auto" />
     </section>
-    
+
     <section>
         <h2 class="text-3xl font-bold mt-8">Latest Blog Posts</h2>
-       
+        <div class="grid md:grid-cols-3 pt-8 gap-10">
+        <Post :posts="posts" />
+        </div>
     </section>
 </template>
