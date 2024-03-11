@@ -16,5 +16,5 @@ export default defineNuxtConfig({
       theme: 'nord',
       preload: ['ts','js','css','java','json','bash','vue']
     }
-  }
-});
+  },
+})
