@@ -7,9 +7,9 @@
   const navigation = [
     { name: 'Accueil', href: '/', current: route.name == 'index' },
     { name: 'Blog', href: '/blog', current: route.name.includes('blog') },
-    { name: 'Projets', href: '/projets', current: route.name == 'projets' },
-    { name: 'Planning', href: '/planning', current: route.name == 'planning' },
-    { name: 'Reports', href: '/Reports', current: route.name == 'reports' },
+    { name: 'Projects', href: '/projects', current: route.name == 'projects' },
+    { name: 'Uses', href: '/Uses', current: route.name == 'Uses' },
+    
   ]
   </script>
 <template>
