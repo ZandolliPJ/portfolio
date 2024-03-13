@@ -12,7 +12,8 @@ export default defineNuxtConfig({
    
   ],
   runtimeConfig: {
-    githubToken: process.env.GITHUB_TOKEN
+    githubURL:process.env.GITHUB_API,
+    githubToken: process.env.GITHUB_TOKEN,
   },
   content: {
     // https://content.nuxtjs.org/api/configuration
@@ -22,10 +23,14 @@ export default defineNuxtConfig({
     }
   },
   apollo: {
+    authType: "Bearer",
+    authHeader: "Authorization",
+    tokenStorage: "cookie",
     clients: {
       default: {
-        httpEndpoint: 'https://api.github.com/graphql'
-      }
+        tokenName: "github-token",
+        httpEndpoint: "https://api.github.com/graphql",
+      },
     },
   },
-})
+});
